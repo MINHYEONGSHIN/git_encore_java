@@ -11,6 +11,7 @@ public class AccountMain {
 		System.out.println("잔액 : "+account.getBalance());
 		System.out.println("=======================");
 		
+		
 		//잔액증가
 		System.out.println(10000+"원을 입금합니다.");
 		account.addBalance(10000);
