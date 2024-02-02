@@ -1,0 +1,83 @@
+package com.encore.hms.domain;
+
+import com.encore.hms.domain.sup.Person;
+
+public class TeacherDTO extends Person {
+	
+//	private String	name ;
+//	private int		age  ;
+//	private String	address ;
+	/////////////////////////
+	
+	
+	private String	subject ;
+	
+	
+	public TeacherDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+		
+		
+	}
+
+
+	public TeacherDTO(String name, int age, String address, String subject) {
+		super(name, age, address);
+//		this.name = name;
+//		this.age = age;
+//		this.address = address;
+		this.subject = subject;
+	}
+
+
+//	public String getName() {
+//		return name;
+//	}
+//
+//
+//	public void setName(String name) {
+//		this.name = name;
+//	}
+//
+//
+//	public int getAge() {
+//		return age;
+//	}
+//
+//
+//	public void setAge(int age) {
+//		this.age = age;
+//	}
+//
+//
+//	public String getAddress() {
+//		return address;
+//	}
+//
+//
+//	public void setAddress(String address) {
+//		this.address = address;
+//	}
+
+
+	public String getSubject() {
+		return subject;
+	}
+
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+
+	
+	public String teacherInfo() {
+//		return "TeacherDTO [name=" + name + ", age=" + age + ", address=" + address + ", subject=" + subject + "]";
+		return super.personInfo() + ", stuID ="+this.getSubject() ;
+	}
+	
+	
+	
+	
+	
+}
