@@ -8,7 +8,7 @@ public class LottoAryMain {
 		
 		// Mission 01.
 		int [] ary = lotto.generateLottoNumbers();
-//		for(int idx = 0 ; idx < ary.length ; idx++) {
+//		for( int idx = 0 ; idx < ary.length ; idx++) {
 //			System.out.println(ary[idx]+" ");
 //		}
 		

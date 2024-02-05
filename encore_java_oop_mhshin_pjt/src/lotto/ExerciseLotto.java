@@ -33,7 +33,7 @@ public class ExerciseLotto {
 					lottoAry[i] = random.nextInt(44)+1 ;
 				}
 			}
- 		}
+// 		}
 		
 		return lottoAry;
 	}
