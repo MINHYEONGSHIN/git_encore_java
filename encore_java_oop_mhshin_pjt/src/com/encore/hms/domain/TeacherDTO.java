@@ -77,7 +77,10 @@ public class TeacherDTO extends Person {
 	}
 	
 	
-	
+	@Override // override 체크 시 활용 가능 
+	public String personInfo() {
+		return super.personInfo() + ",  subject =" + subject ;
+	}
 	
 	
 }

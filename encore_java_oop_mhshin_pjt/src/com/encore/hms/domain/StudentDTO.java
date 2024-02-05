@@ -101,8 +101,14 @@ public class StudentDTO extends Person {
 		return super.personInfo() + ", stuID=" + this.getStuID() ;
 	}
 
+	// overridding(상속관계에서 부모의 메서드를 자식에서 재정의하는 것) 구현부만 달라진다 
+	// overridding(인자 빼고 다 똑같음) 
+	// overridding 조건 : 접근지정자 반환타입 메서드명 매개변수 타입과 개수가 일치
 
-	
+	@Override // override 체크 시 활용 가능 
+	public String personInfo() {
+		return super.personInfo() + ",  stuID =" + stuID ;
+	}
 
 
 }

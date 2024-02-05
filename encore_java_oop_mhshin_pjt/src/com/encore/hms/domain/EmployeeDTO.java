@@ -7,6 +7,9 @@ public class EmployeeDTO extends Person{
 //	private int	   age  ;
 //	private String address ;
 	private String dept ;
+	public EmployeeDTO() {
+		super();
+	}
 	
 	public EmployeeDTO(String name, int age, String address, String dept) {
 		super(name, age, address);
@@ -39,6 +42,9 @@ public class EmployeeDTO extends Person{
 		return super.personInfo() + ", deptID= "+ this.getDept();
 	}
 	
-	
+	@Override // override 체크 시 활용 가능 
+	public String personInfo() {
+		return super.personInfo() + ",  dept =" + dept ;
+	}
 	
 }
