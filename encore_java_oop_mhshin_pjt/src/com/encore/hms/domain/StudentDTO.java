@@ -10,7 +10,7 @@ public class StudentDTO extends Person {
 	/////////////////////////
 	
 	//자기 자신만의 고유한 요소
-	private String stuID ;
+	private String stuId ;
 		//super
 	
 	
@@ -26,7 +26,7 @@ public class StudentDTO extends Person {
 //		super.setName(name); // 부모의 메서드로 부모에게 값 할당, this도 가능하지만 가독성을 위해 super로 둔다 
 //		super.setAge(age); // 부모의 메서드로 부모에게 값 할당 
 //		super.setAddress(address);  // 부모의 메서드로 부모에게 값 할당 
-		this.stuID = stuID; // 이건 나에게 직접 할당 
+		this.stuId = stuId; // 이건 나에게 직접 할당 
 		
 		
 //		this.name = name;
@@ -84,21 +84,21 @@ public class StudentDTO extends Person {
 
 
 
-	public String getStuID() {
-		return stuID;
+	public String getStuId() {
+		return stuId;
 	}
 
 
 
 
-	public void setStuID(String stuID) {
-		this.stuID = stuID;
+	public void setStuId(String stuId) {
+		this.stuId = stuId;
 	}
 	
 	
 	public String studentInfo() {
 		// return "name=" + super.getName() + ", age=" + super.getAge() + ", address=" + super.getAddress() + ", stuID=" + this.stuID ;
-		return super.personInfo() + ", stuID=" + this.getStuID() ;
+		return super.personInfo() + ", stuID=" + this.getStuId() ;
 	}
 
 	// overridding(상속관계에서 부모의 메서드를 자식에서 재정의하는 것) 구현부만 달라진다 
@@ -107,7 +107,7 @@ public class StudentDTO extends Person {
 
 	@Override // override 체크 시 활용 가능 
 	public String personInfo() {
-		return super.personInfo() + ",  stuID =" + stuID ;
+		return super.personInfo() + ",  stuID =" + stuId ;
 	}
 
 
