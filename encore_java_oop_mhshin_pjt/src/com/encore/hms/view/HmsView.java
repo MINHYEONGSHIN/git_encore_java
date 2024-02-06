@@ -2,6 +2,9 @@ package com.encore.hms.view;
 
 import java.util.Scanner;
 
+import com.encore.hms.domain.EmployeeDTO;
+import com.encore.hms.domain.StudentDTO;
+import com.encore.hms.domain.TeacherDTO;
 import com.encore.hms.domain.sup.Person;
 import com.encore.hms.service.HmsService;
 import com.encore.hms.util.HmsType;
@@ -18,7 +21,7 @@ public class HmsView {
 	
 	
 	public HmsView() {
-		service = new HmsService();
+		service = new HmsService(10);
 	}
 	
 	public void mainMenu() {
@@ -87,6 +90,31 @@ public class HmsView {
 		
 		
 	public void update() {
+		System.out.println();
+		System.out.println(">>> 수정 <<<");
+		System.out.println(">>> 이름을 입력하세요 <<<");
+		String name = scan.next();
+		Person obj = service.updatePerson(name) ;
+		
+		if(obj != null) {
+			if(obj instanceof StudentDTO ) {
+				System.out.println("수정할 학번을 입력하세요 : ");
+				String stuId = scan.next();
+				((StudentDTO)obj).setStuId(stuId);
+			}
+			if(obj instanceof TeacherDTO ) {
+				System.out.println("수정할 과목을 입력하세요 : ");
+				String subject = scan.next();
+				((TeacherDTO)obj).setSubject(subject);
+			}
+			if(obj instanceof EmployeeDTO ) {
+				System.out.println("수정할 부서를 입력하세요 : ");
+				String dept = scan.next();
+				((EmployeeDTO)obj).setDept(dept);
+			}
+		}else {
+			System.out.println("정보가 존재하지 않습니다");
+		}
 		
 	}
 		/*
@@ -98,7 +126,23 @@ public class HmsView {
 		 * HmsView - HmsService(removePerson(String name))
 		 */
 	public void remove() {
-		
+		System.out.println();
+		System.out.println(">>>remove<<<");
+		System.out.println("찾고자하는 이름을 입력하세요");
+		System.out.println();
+		scan.nextLine();
+		String name = scan.nextLine();
+		Person person = service.searchPerson(name);
+			if(person == null) {
+				System.out.println("정보가 없어요~");
+			}else {
+				boolean flag = service.removePerson(name);
+				if(flag == true) {
+					System.out.println("객체를 삭제했어요~");
+				} else {
+					System.out.println("작업을 수행 못했어요 이유는 비밀~");
+				}
+			}
 	}
 	
 	
@@ -121,11 +165,11 @@ public class HmsView {
 				System.out.println(per.personInfo());
 			}
 			/// or 
-			for(Person per : perAry) {
-				System.out.println(per.personInfo());
+//			for(Person per : perAry) {
+//				System.out.println(per.personInfo());
 			}
 		}
-	}
+	
 		
 		public void subMenu() {
 			while(true) {
@@ -158,11 +202,13 @@ public class HmsView {
 		
 		// Scanner 이름, 나이 주소, comm 받기 
 		// HmsService - makePerson() 연결
+		scan.nextLine();
 		System.out.println("이름을 입력하세요.");
 		String name = scan.nextLine();
 		System.out.println("나이를 입력하세요.");
 		int age = scan.nextInt();
 		System.out.println("주소를 입력하세요.");
+		scan.nextLine();
 		String address = scan.nextLine();
 		
 		/*
