@@ -24,6 +24,8 @@ public class HmsView {
 		service = new HmsService(10);
 	}
 	
+
+	
 	public void mainMenu() {
 		while(true) {
 			System.out.println(">>>> HMS Ver1.0 <<<<");
@@ -34,28 +36,36 @@ public class HmsView {
 			System.out.println("5. 생성");
 			System.out.println("99. 종료");
 			System.out.println("Input Number : ");
-			int number = scan.nextInt();
-			switch(number) {
-				case 1 :
-					perPrint();
-					break;
-				case 2 :
-					search();
-					break;
-				case 3 :
-					update();
-					break;
-				case 4 :
-					remove();
-					break;
-				case 5 :
-					subMenu();
-					break;
-				case 99 :
-					System.out.println("프로그램을 종료합니다.. 데이터는삭제됩니다 ");
-					System.exit(0);
+			try {
+				int number = scan.nextInt();
+				switch(number) {
+					case 1 :
+						perPrint();
+						break;
+					case 2 :
+						search();
+						break;
+					case 3 :
+						update();
+						break;
+					case 4 :
+						remove();
+						break;
+					case 5 :
+						subMenu();
+						break;
+					case 99 :
+						System.out.println("프로그램을 종료합니다.. 데이터는삭제됩니다 ");
+						System.exit(0);
+					default : 
+						System.out.println("메뉴에 정의된 숫자만 입력하도록");
+						
+					}// switch end block
+			} catch(Exception e) {
+				System.out.println("숫자만 입력하세요..");
+				scan.nextLine();
 			}
-		}// switch end block
+		}// while end block
 	}// main menu end block
 		
 		/*
