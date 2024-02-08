@@ -20,6 +20,7 @@ public class HmsMain {
 	
 		HmsView view = new HmsView();
 		view.mainMenu();
+		view.out)
 	
 	
 	
