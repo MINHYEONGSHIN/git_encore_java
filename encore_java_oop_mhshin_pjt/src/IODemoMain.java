@@ -40,21 +40,37 @@ public class IODemoMain {
 //		System.out.println(">>>main end<<<");
 		
 		//case04 : docs oracle 참조 
-		String msg = "aBc";
-		System.out.println(msg.equals("abc"));
-		System.out.println(msg.equalsIgnoreCase("abc"));
-		System.out.println(msg.toUpperCase());
-		System.out.println(msg.toLowerCase());
-		System.out.println(msg.length());
-		System.out.println(msg.contains("B"));
-		System.out.println(msg.startsWith("a"));
-		System.out.println(msg.endsWith("c"));
-		msg = " a b c ";
-		System.out.println(msg.trim().length());
-		msg = "abcdef" ; // 문자열 = 문자의 연결
-		System.out.println(msg.charAt(1));
-		System.out.println(msg.substring(2));
-		System.out.println(msg.substring(2, 5));
+//		String msg = "aBc";
+//		System.out.println(msg.equals("abc"));
+//		System.out.println(msg.equalsIgnoreCase("abc"));
+//		System.out.println(msg.toUpperCase());
+//		System.out.println(msg.toLowerCase());
+//		System.out.println(msg.length());
+//		System.out.println(msg.contains("B"));
+//		System.out.println(msg.startsWith("a"));
+//		System.out.println(msg.endsWith("c"));
+//		msg = " a b c ";
+//		System.out.println(msg.trim().length());
+//		msg = "abcdef" ; // 문자열 = 문자의 연결
+//		System.out.println(msg.charAt(1));
+//		System.out.println(msg.substring(2));
+//		System.out.println(msg.substring(2, 5));
+		
+		//case05
+//		boolean flag = demo.outputFile();
+//		String msg = (flag == true) ? "저장성공" : "저장실패" ;
+//		System.out.println(msg);
+		
+		//case06
+		/*
+		boolean flag = demo.outputObjFile();
+		String msg = (flag == true) ? "저장성공" : "저장실패" ;
+		System.out.println(msg);
+		*/
+		
+		//case07
+		demo.outputSerializable();
+//		demo.inputSerializable();
 	}
 
 }

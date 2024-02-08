@@ -1,6 +1,11 @@
 // 모든 요청이 넘어오는 곳.
 package com.encore.hms.service;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Arrays;
 
 import com.encore.hms.domain.EmployeeDTO;
@@ -50,18 +55,19 @@ public class HmsService {
 		perAry[idx++] = per ;
 	}
 	
-	public int getIdx() {
-		return idx;
-	}
-	
 	public Person[] getAry() {
 		return perAry;
 	}
 	
+	public int getIdx() {
+		return idx;
+	}
+	
+
+	
 	//찾기
 	public Person searchPerson(String name) {
-		Person person = null ;
-		
+		Person person = null ;	
 		for(int idx=0 ; idx < perAry.length ; idx++) {
 			person = perAry[idx];
 			if(person != null) {
@@ -84,28 +90,78 @@ public class HmsService {
 //		Person[] copyAry = perAry.clone();
 		
 		//2.
-		import java.util.Arrays;
-		person[] copyAry1 = Arrays.copyOf(perAry, perAry.length);
-		
-		System.out.println("original ary address : "+perAry);
-		System.out.println("copy     ary address : "+copyAry);
+//		import java.util.Arrays;
+//		person[] copyAry1 = Arrays.copyOf(perAry, perAry.length);
+//		
+//		System.out.println("original ary address : "+perAry);
+//		System.out.println("copy     ary address : "+copyAry);
 		
 		return searchPerson(name) ;
 	}
 	
 	public boolean removePerson(String name) {
-		boolean flag = false ;
 		for(int i = 0 ; i < perAry.length ; i++) {
 			Person person = perAry[i];
-			if(person.getName().equals(name)) {
-				for(int j = i ; j < perAry.length-1 ; j++) {
-					perAry[j] = perAry[j+1];
+			if(person != null) {
+				if(person.getName().equals(name)) {
+					for(int j = i ; j < perAry.length-1 ; j++) {
+						perAry[j] = perAry[j+1];
+					}
+					idx = idx - 1 ;
+					perAry[idx] = null ;
+					return true ;
 				}
-				idx = idx - 1 ;
-				perAry[idx] = null ;
-				return true ;
 			}
 		}
 		return false;
+	}
+	
+	public void saveToFile() {
+	
+		FileOutputStream   fis = null;
+		ObjectOutputStream oos = null; 
+		try {
+			fis = new FileOutputStream("c:/file/hms.txt");
+			oos = new ObjectOutputStream(fis) ;
+			
+			oos.writeObject(perAry);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(oos != null) {oos.close();}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void loadToFile() {
+
+		FileInputStream   fis = null;
+		ObjectInputStream oos = null; 
+		try {
+			fis = new FileInputStream("c:/file/hms.txt");
+			oos = new ObjectInputStream(fis) ;
+			perAry = (Person[]) oos.readObject();			
+			
+			int cnt = 0 ;
+			for(int i = 0; i < perAry.length ;  i++ ) {
+				if(perAry[i] != null) {
+					cnt = cnt + 1;
+				}
+			}
+			idx = cnt;
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		} finally {
+			try {
+				if(oos != null) {oos.close(); }
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }
