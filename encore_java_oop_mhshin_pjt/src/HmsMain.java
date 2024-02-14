@@ -1,5 +1,6 @@
 import com.encore.hms.service.HmsService;
 import com.encore.hms.util.HmsType;
+import com.encore.hms.view.HmsListView;
 import com.encore.hms.view.HmsView;
 
 
@@ -17,11 +18,16 @@ public class HmsMain {
 //		System.out.println(msg);
 //		msg = service.makePerson(HmsType.EMP, "이붕이", 20  "인천", "동반성장");
 //		System.out.println(msg);
-	
+		
+		/*
 		HmsView view = new HmsView();
 		view.mainMenu();
 		view.out)
-	
+		*/
+		
+		// ArrayList
+		HmsListView view = new HmsListView();
+		view.mainMenu();
 	
 	
 	
